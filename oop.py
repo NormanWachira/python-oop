@@ -1,80 +1,61 @@
-class Book:
-    def __init__(self, title, author):
-        # private attributes
-        self.__title = title;  
-        self.__author = author;
+# This Program contains Encapsulation(private attributes, getters and setters), Inheritance and Polymorphism altogether
 
-    # Getter for title
+# Activity 1
+
+# Base class 'Employee'
+class Employee:
+    def __init__(self, name, salary, role):
+        # Private attributes
+        self.__name = name;
+        self.__salary = salary;
+        self.__role = role;
+
+    # getter for name
     @property
-    def title(self):
-        return self.__title
-
-    # Setter for title
-    @title.setter
-    def title(self, value):
-        if value.strip():
-            self.__title = value
+    def name(self):
+        return self.__name;
+    # getter for salary
+    @property
+    def salary(self):
+        return self.__salary;
+    # setter for salary
+    @salary.setter
+    def salary(self, value):
+        if value >= 0:
+            self.__salary = value;
         else:
-            raise ValueError("Title cannot be empty")
-
-    # Getter for author
+            raise ValueError("Salary must be non-negative");
+    # getter for role
     @property
-    def author(self):
-        return self.__author
-    # Setter for author
-    @author.setter
-    def author(self, value):
-        self.__author = value
+    def role(self):
+        return self.__role;
 
-    def describe(self):
-        print(f"'{self.__title}' by {self.__author}")
+    # Another method 'Work'
+    def work(self):
+        return "Working";
 
+# class Inheritances
+class Teacher(Employee):
+    def work(self):
+        return "Teaching students";
 
-class Novel(Book):
-    def __init__(self, title, author, genre):
-        super().__init__(title, author)
-        self.__genre = genre
-    # getter for genre
-    @property
-    def genre(self):
-        return self.__genre
-    # setter for genre
-    @genre.setter
-    def genre(self, value):
-        self.__genre = value
+class Chef(Employee):
+    def work(self):
+        return "Cooking meals";
 
-    def describe(self):
-        print(f"Novel: '{self.title}' by {self.author}, Genre: {self.__genre}")
+class Driver(Employee):
+    def work(self):
+        return "Driving passengers";
 
 
-class Textbook(Book):
-    def __init__(self, title, author, subject):
-        super().__init__(title, author)
-        self.__subject = subject
-    # getter for subject
-    @property
-    def subject(self):
-        return self.__subject
-    # setter for subject
-    @subject.setter
-    def subject(self, value):
-        self.__subject = value
+# Objects and Polymorphism in action in the work() methods
 
-    def describe(self):
-        print(f"Textbook: '{self.title}' by {self.author}, Subject: {self.__subject}")
+t=Teacher("Abraham", 5000, "Farmer")
+c=Chef("Benjamin", 4000, "Chef")
+d=Driver("Norman", 30000, "Engineer")
 
+employees=[t,c,d]
 
-# -------- Testing --------
-b1 = Book("Generic Book", "Unknown")
-b2 = Novel("1984", "George Orwell", "Dystopian")
-b3 = Textbook("Physics 101", "Isaac Newton", "Science")
+for emp in employees:
+    print(f"Name: {emp.name} | Role: {emp.role} | Work: {emp.work()} | Salary: ${emp.salary}")
 
-library = [b1, b2, b3]
-
-for book in library:   # polymorphism
-    book.describe()
-
-# Encapsulation in action
-print(b2.genre)        # getter
-b2.genre = "Political" # setter
-b2.describe()
