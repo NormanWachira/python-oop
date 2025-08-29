@@ -13,11 +13,3 @@ This program demonstrates **Encapsulation, Inheritance, and Polymorphism** in Py
 - **Polymorphism**:  
   Each subclass overrides the `work()` method to define its own behavior, demonstrating polymorphic behavior when iterating over a list of employees.
 
-## Usage
-
-1. **Create employee objects:**
-
-```python
-t = Teacher("Abraham", 5000, "Farmer")
-c = Chef("Benjamin", 4000, "Chef")
-d = Driver("Norman", 30000, "Engineer")
