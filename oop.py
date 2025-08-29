@@ -50,11 +50,11 @@ class Engineer(Employee):
 
 # Objects and Polymorphism in action in the work() methods
 
-t=Farmer("Abraham", 5000, "Farmer")
+f=Farmer("Abraham", 5000, "Farmer")
 c=Chef("Benjamin", 4000, "Chef")
-d=Engineer("Norman", 30000, "Engineer")
+e=Engineer("Norman", 30000, "Engineer")
 
-employees=[t,c,d]
+employees=[f,c,e]
 
 for emp in employees:
     print(f"Name: {emp.name} | Role: {emp.role} | Work: {emp.work()} | Salary: ${emp.salary}")
