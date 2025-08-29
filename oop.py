@@ -35,24 +35,24 @@ class Employee:
         return "Working";
 
 # class Inheritances
-class Teacher(Employee):
+class Farmer(Employee):
     def work(self):
-        return "Teaching students";
+        return "Farming crops";
 
 class Chef(Employee):
     def work(self):
         return "Cooking meals";
 
-class Driver(Employee):
+class Engineer(Employee):
     def work(self):
-        return "Driving passengers";
+        return "Building machinery";
 
 
 # Objects and Polymorphism in action in the work() methods
 
-t=Teacher("Abraham", 5000, "Farmer")
+t=Farmer("Abraham", 5000, "Farmer")
 c=Chef("Benjamin", 4000, "Chef")
-d=Driver("Norman", 30000, "Engineer")
+d=Engineer("Norman", 30000, "Engineer")
 
 employees=[t,c,d]
 
